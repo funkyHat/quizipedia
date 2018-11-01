@@ -55,8 +55,7 @@ def get_question(path):
         data = eval(f.read())
         query = data.pop('query')
         answers = data.pop('answers')
-        what = data.keys()[0]
-        subject = data.values()[0]
+        what, subject = list(data.items())[0]
         question = f"what {query} was the {what} {subject}?"
     return {
         "question": question,
@@ -66,4 +65,7 @@ def get_question(path):
 
 if __name__ == '__main__':
     cli(questions)
-    get_question('query_bundle.json')
+
+    more_question = get_question('query_bundle.json')
+    print(more_question)
+    cli([more_question])
