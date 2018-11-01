@@ -59,7 +59,7 @@ def build_question(source):
     question_bundle['query'] = query
     question_bundle['answers'] = value
 
-    print(question_bundle)
+    # print(question_bundle)
     return question_bundle
 
 build_question(source)

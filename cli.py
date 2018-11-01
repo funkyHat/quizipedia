@@ -53,10 +53,14 @@ def get_question(path):
     """
     with open(path) as f:
         data = eval(f.read())
-        query = data.pop('query')
-        answers = data.pop('answers')
-        what, subject = list(data.items())[0]
-        question = f"what {query} was the {what} {subject}?"
+        return fix_question(data)
+
+
+def fix_question(data):
+    query = data.pop('query')
+    answers = data.pop('answers')[:3]
+    what, subject = list(data.items())[0]
+    question = f"what {query} was the {what} {subject}?"
     return {
         "question": question,
         "answers": answers,
