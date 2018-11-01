@@ -31,7 +31,7 @@ def build_question(source):
     # pprint.pprint(options)
 
     import random
-    question = random.choice(source)
+    question = random.choice(list(source))
 
     # print(question)
     contexts = ["Song"]
