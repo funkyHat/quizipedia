@@ -1,0 +1,1 @@
+https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&titles=List_of_Hi-NRG_artists_and_songs&rvprop=content&rvsection=0&rvparse
