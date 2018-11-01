@@ -11,6 +11,7 @@ questions = [
     }
 ]
 
+
 def cli(questions):
     for question in questions:
         answers = question['answers']
@@ -40,3 +41,29 @@ def cli(questions):
                 click.echo('WRONG!')
 
             time.sleep(1)
+
+
+def get_question(path):
+    """
+    {
+        'song': '"Fly With the Wind"',
+        'query': 'Year',
+        'answers': [1978, 1979, 1982, 1709]
+    }
+    """
+    with open(path) as f:
+        data = eval(f.read())
+        query = data.pop('query')
+        answers = data.pop('answers')
+        what = data.keys()[0]
+        subject = data.values()[0]
+        question = f"what {query} was the {what} {subject}?"
+    return {
+        "question": question,
+        "answers": answers,
+    }
+
+
+if __name__ == '__main__':
+    cli(questions)
+    get_question('query_bundle.json')
